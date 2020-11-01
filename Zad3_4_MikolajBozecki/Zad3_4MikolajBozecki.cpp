@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "Wektor.h"
+// PB: Załącza się tylko pliki nagłówkowe - nie CPP
 #include "Wektor.cpp"
 using namespace std;
 

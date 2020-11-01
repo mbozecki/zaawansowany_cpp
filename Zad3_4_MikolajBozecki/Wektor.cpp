@@ -20,11 +20,14 @@ T1& Wektor<T1,T2>::operator [](int num)
 	}
 	else
 	{
+		// PB: Lepiej rzucić wyjątkiem
 		std::cout << "Odwolanie poza tablice";
 		exit(0);
 	}
 }
 
+// PB: Ten operator powinien być poza klasą i pozwalać na liczenie iloczynu dowolnej kombinacji różnych wektorów,
+//     także np. std::vector<double> * std::vector<double> albo Wektor<2, int> * std::vector<double>
 template <typename T1, int T2>
 T1 Wektor<T1,T2>::operator *(const std::vector<T1>& v)
 {
@@ -34,6 +37,7 @@ T1 Wektor<T1,T2>::operator *(const std::vector<T1>& v)
 	}
 	else
 	{
+		// PB: A jeśli wektory mają inne rozmiary?
 		return ((tab[0] * v[0]) + (tab[1] * v[1]));
 	}
 

@@ -1,11 +1,14 @@
 ﻿#include <iostream>
 using namespace std;
+
+// PB: Niepotrzebne kopiowanie - argumenty powinny być przekazane przez stałe referencje
 template <typename T1, typename T2>
 auto add1(T1 a, T2 b)
 {
 	return a + b;
 }
 
+// PB: Niepotrzebne kopiowanie - argumenty powinny być przekazane przez stałe referencje
 template <typename T3, typename T4, typename T5>
 auto add2(T3 a, T4 b, T5 f)
 {
