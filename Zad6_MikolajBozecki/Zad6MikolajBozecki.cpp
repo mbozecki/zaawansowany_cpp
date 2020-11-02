@@ -28,6 +28,9 @@ template <> struct hipervolume <-1, -1>
 
 int main()
 {
+	// PB: Sprawdzenie czy liczy się w czasie kompilacji
+	static_assert(hipervolume<5, 5>::v == 3125);
+
 	cout << "6^3= ";
 	cout << hipervolume<6, 3>::v << endl;
 	cout << hipervolume<6, -1>::v << endl;

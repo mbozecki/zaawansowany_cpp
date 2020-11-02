@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 using namespace std;
 
+// PB: Mimo, że da się osiągnąć oczekiwany wynik stosując fold expression,
+//     to poprawne rozwiązanie powinno zawierać użycie ‘constexpr if’ oraz operatora ’sizeof…’
 template <typename ...Args>
 auto add(Args ...args)
 {

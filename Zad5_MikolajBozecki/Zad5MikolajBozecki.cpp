@@ -1,12 +1,17 @@
 ﻿#include <iostream>
 using namespace std;
 
+// PB: Niepotrzebne kopiowanie - argumenty powinny być przekazane przez stałe referencje
 template <typename T1, typename T2>
 auto add1(T1 a, T2 b)
 {
 	return a + b;
 }
 
+// PB: Ta funkcja nie modyfukuje argumentów, więc powinna przyjmować wskaźniki do stałych,
+//     ale po zmianie na:
+//     auto add1(T1 const * a, T2 const * b){ return *a + *b; }
+//     nie zadziała. I ten problem trzeba było rozwiązać.
 template<typename T1, typename T2>
 auto add1(T1 *a, T2 *b)
 {
