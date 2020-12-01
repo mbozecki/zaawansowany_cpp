@@ -28,5 +28,4 @@ int main()
 
 //Aby wychodzil zawsze poprawny wynik, nalezy zamienic FLOAT sum na DOUBLE sum
 
-//Czas z funkcji clock() zwraca liczbę cykli, które uplynely od chwili uruchomienia programu, 
-// W tej sytuacji bedzie to bez sensu, bo funkcja ta doda do siebie czasy wszystkich wątków, a przecież program działa na kilku na raz
+//Czas z funkcji clock() zwraca liczbę cykli, które uplynely od chwili uruchomienia programu, nie liczy on zwykłego czasu (wall clock)
