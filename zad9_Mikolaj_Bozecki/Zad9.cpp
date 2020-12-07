@@ -1,21 +1,30 @@
 ﻿#include "A.h"
 #include <iostream>
 #include<string>
+#include <vector>
 using namespace std;
+
+const A copy(const A& a) {
+	A a1(a);
+	return a;
+}
+
+const A copy(A&& a) {
+	A a1 = std::move(a);
+	return a1;
+}
+
 int main()
 {
+	string st = "Laurel Laurel";
 
-	string st2 = "tekst docelowy";
-	A *a1 = new A(st2);
-	A *b1 = new A();
-	b1->copy(*a1);
-	cout << a1->get() << endl;
-	cout << b1->get() << endl;
+	A a1(st);
+	cout << a1.get() << endl;
+	A a2=copy(a1);
+	cout << a2.get() << endl;
+	A a3 = copy(A("Yanny"));
+	cout << a3.get() << endl;
+	
 
-	A *c1 = new A();
-	c1->rcopy( A("h"));
-	cout << c1->get() << endl;
-
-	//A *rowna = &kopia;
-	//cout << rowna->get() << endl;
+	return 0;
 }
