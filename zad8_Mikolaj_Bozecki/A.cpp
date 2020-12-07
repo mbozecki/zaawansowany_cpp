@@ -5,33 +5,36 @@ A::A()
 {
 	std::cout << "A:A()";
 }
-A::A(const std::string &s)
+A::A(const std::string& s)
 {
 	std::cout << "konstruktor const string &s" << std::endl;
-	//ch = new char[sizeof s.size()];
-	//strcpy(ch, s.c_str());
-	ch = new char[s.size()+1];
-	s.copy(ch, s.size() + 1);
-	ch[s.size()] = '\0';
+	len = s.length();
+	ch = new char[len + 1];
+	s.copy(ch, len + 1);
+	ch[len] = '\0';
 
 }
-A::A(const A& a)
+A::A(const A& a) //konstruktor kopiujacy
 {
-	std::cout << "konstruktor kopiujacy" << std::endl;
-	ch = a.ch;
+	len = a.len;
+	ch = new char[len + 1];
+	std::memcpy(ch, a.ch, len + 1);
+	std::cout << "wywolano konstruktor kopiujacy" << std::endl;
+	
 }
-A& A::operator=(const A& a)
+A::A(A&& a)//konstruktor przenoszacy
 {
-	std::cout << "operator =" << std::endl;
+	len = a.len;
 	ch = a.ch;
-	return *this;
+	a.ch = nullptr;
+	std::cout << "wywolano konstruktor przenoszacy" << std::endl;
 }
-char *A::get()
+const char* A::get() const
 {
 	return ch;
 }
 A::~A()
 {
-	delete ch;
 	std::cout << "destruktor wywolany!" << std::endl;
+	delete[] ch;
 }

@@ -1,24 +1,18 @@
 ﻿#include "A.h"
 #include <iostream>
 #include<string>
+#include <vector>
 using namespace std;
 int main()
 {
 	string st = "Laurel Laurel";
 
-	A *test= new A(st);
-	cout << test->get() << endl;
+	A a1(st);
+	A a2(a1);
 
-	//A kopia(*test);
-	//cout << kopia.get() << endl;
+	std::vector<A> vec;
+	vec.push_back(A{st});
+	vec.push_back(A{"st2"});
 
-	A* kopia1 = new A(*test);
-	cout << kopia1->get() << endl;
-
-	A rowna = *kopia1;
-	cout << rowna.get() << endl;
-
-
-	//A *rowna = &kopia;
-	//cout << rowna->get() << endl;
+	return 0;
 }
