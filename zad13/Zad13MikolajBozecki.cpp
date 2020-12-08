@@ -25,7 +25,7 @@ int run_async(launch asyncpolicy, int num)
 	if (num > 0)
 	{
 		num--;
-		auto a = async(asyncpolicy, runAsync, asyncpolicy, num);
+		auto a = async(asyncpolicy, run_async, asyncpolicy, num);
 		a.get();
 	}
 	num_and_string("Printed text ");
