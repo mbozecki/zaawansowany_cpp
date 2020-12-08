@@ -35,5 +35,7 @@ int run_async(launch asyncpolicy, int num)
 int main()
 {
 	auto a =async(launch::async, run_async, launch::async, 6);
-	auto b = async(launch::async, run_async, launch::deferred, 6);
+	auto b = async(launch::deferred, run_async, launch::deferred, 4);
+	a.get();
+	b.get();
 }
